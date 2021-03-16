@@ -3,8 +3,6 @@ import Link from 'next/link';
 
 import NavBar from '../../src/components/NavBar';
 
-// TODO: need to fetch music genres (by calling Spotify API endpoint), prior to pre-rendering
-
 const Venues = ({ data }) => {
   return (
     <div>
@@ -28,7 +26,7 @@ const Venues = ({ data }) => {
 };
 
 //executed in a node environment, never in the browser
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response = await fetch('http://localhost:3000/api/categories');
   const categories = await response.json();
 
