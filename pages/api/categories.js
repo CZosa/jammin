@@ -1,6 +1,6 @@
 import { getAllCategories } from '../../lib/spotify';
 
-export default async (_, res) => {
+export default async (req, res) => {
   const response = await getAllCategories();
   const category = await response.json();
 
@@ -8,5 +8,5 @@ export default async (_, res) => {
     name: _category.name,
   }));
 
-  return res.status(200).json(categories);
+  return res.status(200).json({ categories });
 };
